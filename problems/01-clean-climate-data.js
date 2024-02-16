@@ -12,10 +12,16 @@ For example, it should return:
 */
 
 function listAllCitiesWithCountries(climateData) {
-    // Your code here 
+    // use map to make each data entry into city, country format
+    const citiesInProperFormat = climateData.map(currentObject => `${currentObject.city}, ${currentObject.country}`);
+    // this simply iterates through each element of the array, and returns the city and country
+    // properties for each one.
+    // formatted using literals like before to make it fit the requirements
+    // then returns them
+    return citiesInProperFormat;
 }
 
-// console.log(listAllCitiesWithCountries(climateData));
+console.log(listAllCitiesWithCountries(climateData));
 
 
 
@@ -31,10 +37,33 @@ For example, it should return:
 
 
 function listAllUsCities(climateData) {
-    // Your code here 
+    // can use filter to go through all of the array and look for the elements with the country property
+    // set to 'United States)
+    // with this, can then map the U.S. entries to the format desired
+
+    // filter method creates new array 'formattedUsCities'
+    // filter function checks each entry to see if it is united states.
+    // once the array has been filtered and only contains united states pairs
+    // map method is used to format each entry into a string based on the template literal
+    // it combines city, and country properties of each entry into a string.
+
+    // the filter method syntax looks like:
+    // currentObject (represents current entry being iterated over from climateData)
+    // currentObject => (fat arrow designates anonymous function) Provides quick filtering condition.
+    // Checks the entry it is currently on to see if the 'country' property is equal to
+    // United States.
+    // I need more experience and time writing filters. I still get so lost if not breaking it down.
+
+
+    let formattedUsCities = climateData.filter(currentObject => currentObject.country === 'United States')
+    .map(currentObject => `${currentObject.city}, ${currentObject.country}`);
+
+    // return the array of the formatted cities.
+
+    return formattedUsCities;
 }
 
-// console.log(listAllUsCities(climateData));
+console.log(listAllUsCities(climateData));
 
 
 
@@ -51,7 +80,7 @@ was duplicated in id 3, 7, and 9, the returned object should look like:
 
 
 function findDuplicates(climateData) {
-    // Your code here 
+    // Your code here
 }
 
 // console.log(findDuplicates(climateData));
@@ -73,7 +102,7 @@ but do not have to, use this method to solve this problem.
 
 
 function returnDuplicate(climateData) {
-    // Your code here 
+    // Your code here
 }
 
 // console.log(returnDuplicate(climateData));
@@ -93,7 +122,7 @@ HINT: Can you use functions you have already written to help solve this problem?
 
 
 function correctDuplicate(climateData, newCityName) {
-    // Your code here 
+    // Your code here
 }
 
 // console.log(correctDuplicate(climateData, "Peoria IL"));
